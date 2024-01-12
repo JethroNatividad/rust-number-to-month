@@ -1,9 +1,11 @@
+use std::panic;
+
 // program to convert numbers to corresponding month.
 // Inputs: number
 // process: get corresponding month
 // output: month
 
-fn number_to_month(number: u32) -> &str {
+fn number_to_month(number: u32) -> &'static str {
     match number {
         1 => "January",
         2 => "February",
@@ -38,13 +40,8 @@ mod tests {
         assert_eq!(number_to_month(10), "October");
         assert_eq!(number_to_month(11), "November");
         assert_eq!(number_to_month(12), "December");
-
-        #[should_panic]
-        number_to_month(0);
-        #[should_panic]
-        number_to_month(13);
-        #[should_panic]
-        number_to_month(99);
+        assert!(panic::catch_unwind(|| test_number_to_month(13)).is_err());
+        assert!(panic::catch_unwind(|| test_number_to_month(0)).is_err());
     }
 }
 
