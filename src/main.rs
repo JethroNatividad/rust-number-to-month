@@ -6,7 +6,7 @@ use std::io::Write;
 // process: get corresponding month
 // output: month
 
-fn number_to_month(number: i32) -> Option<&'static str> {
+fn number_to_month(number: u32) -> Option<&'static str> {
     match number {
         1 => Some("January"),
         2 => Some("February"),
@@ -66,5 +66,12 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 fn main() {
     // prompt number : "Please enter the number of the month: "
     // convert number to month
-    // if not none, display number, else re ask
+    // if not none, display number, else re ask.
+
+    let number: u32 = get_input("Please enter the number of the month: ");
+    let result: Option<&str> = number_to_month(number);
+    match result {
+        Some(month) => println!("The name of the month is {}", month),
+        None => println!("Invalid Month Number."),
+    }
 }
