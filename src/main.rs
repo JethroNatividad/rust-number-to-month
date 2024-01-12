@@ -3,6 +3,7 @@
 // process: get corresponding month
 // output: month
 
+fn number_to_month(number: u32) -> &str {}
 #[cfg(test)]
 mod tests {
     use super::*;
