@@ -6,21 +6,21 @@ use std::io::Write;
 // process: get corresponding month
 // output: month
 
-fn number_to_month(number: i32) -> &'static str {
+fn number_to_month(number: i32) -> Option<&'static str> {
     match number {
-        1 => "January",
-        2 => "February",
-        3 => "March",
-        4 => "April",
-        5 => "May",
-        6 => "June",
-        7 => "July",
-        8 => "August",
-        9 => "September",
-        10 => "October",
-        11 => "November",
-        12 => "December",
-        _ => "None",
+        1 => Some("January"),
+        2 => Some("February"),
+        3 => Some("March"),
+        4 => Some("April"),
+        5 => Some("May"),
+        6 => Some("June"),
+        7 => Some("July"),
+        8 => Some("August"),
+        9 => Some("September"),
+        10 => Some("October"),
+        11 => Some("November"),
+        12 => Some("December"),
+        _ => None,
     }
 }
 #[cfg(test)]
@@ -29,20 +29,20 @@ mod tests {
 
     #[test]
     fn test_number_to_month() {
-        assert_eq!(number_to_month(1), "January");
-        assert_eq!(number_to_month(2), "February");
-        assert_eq!(number_to_month(3), "March");
-        assert_eq!(number_to_month(4), "April");
-        assert_eq!(number_to_month(5), "May");
-        assert_eq!(number_to_month(6), "June");
-        assert_eq!(number_to_month(7), "July");
-        assert_eq!(number_to_month(8), "August");
-        assert_eq!(number_to_month(9), "September");
-        assert_eq!(number_to_month(10), "October");
-        assert_eq!(number_to_month(11), "November");
-        assert_eq!(number_to_month(12), "December");
-        assert_eq!(number_to_month(13), "None");
-        assert_eq!(number_to_month(99), "None");
+        assert_eq!(number_to_month(1), Some("January"));
+        assert_eq!(number_to_month(2), Some("February"));
+        assert_eq!(number_to_month(3), Some("March"));
+        assert_eq!(number_to_month(4), Some("April"));
+        assert_eq!(number_to_month(5), Some("May"));
+        assert_eq!(number_to_month(6), Some("June"));
+        assert_eq!(number_to_month(7), Some("July"));
+        assert_eq!(number_to_month(8), Some("August"));
+        assert_eq!(number_to_month(9), Some("September"));
+        assert_eq!(number_to_month(10), Some("October"));
+        assert_eq!(number_to_month(11), Some("November"));
+        assert_eq!(number_to_month(12), Some("December"));
+        assert_eq!(number_to_month(13), None);
+        assert_eq!(number_to_month(99), None);
     }
 }
 
@@ -64,5 +64,6 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 }
 
 fn main() {
-    println!("Hello, world!");
+    // prompt number : "Please enter the number of the month: "
+    //
 }
