@@ -1,4 +1,5 @@
-use std::panic;
+use std::io;
+use std::io::Write;
 
 // program to convert numbers to corresponding month.
 // Inputs: number
