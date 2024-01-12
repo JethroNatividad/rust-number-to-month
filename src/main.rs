@@ -65,5 +65,6 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 
 fn main() {
     // prompt number : "Please enter the number of the month: "
-    //
+    // convert number to month
+    // if not none, display number, else re ask
 }
