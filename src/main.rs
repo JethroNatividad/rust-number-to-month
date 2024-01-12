@@ -5,7 +5,7 @@ use std::panic;
 // process: get corresponding month
 // output: month
 
-fn number_to_month(number: u32) -> &'static str {
+fn number_to_month(number: i32) -> &'static str {
     match number {
         1 => "January",
         2 => "February",
@@ -19,7 +19,7 @@ fn number_to_month(number: u32) -> &'static str {
         10 => "October",
         11 => "November",
         12 => "December",
-        _ => panic!("Invalid month number. Must be between 1 and 12 inclusive."),
+        _ => "None",
     }
 }
 #[cfg(test)]
@@ -40,8 +40,8 @@ mod tests {
         assert_eq!(number_to_month(10), "October");
         assert_eq!(number_to_month(11), "November");
         assert_eq!(number_to_month(12), "December");
-        assert!(panic::catch_unwind(|| test_number_to_month(13)).is_err());
-        assert!(panic::catch_unwind(|| test_number_to_month(0)).is_err());
+        assert_eq!(number_to_month(13), "None");
+        assert_eq!(number_to_month(99), "None");
     }
 }
 
