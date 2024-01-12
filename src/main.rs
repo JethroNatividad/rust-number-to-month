@@ -68,10 +68,12 @@ fn main() {
     // convert number to month
     // if not none, display number, else re ask.
 
-    let number: u32 = get_input("Please enter the number of the month: ");
-    let result: Option<&str> = number_to_month(number);
-    match result {
-        Some(month) => println!("The name of the month is {}", month),
-        None => println!("Invalid Month Number."),
+    loop {
+        let number: u32 = get_input("Please enter the number of the month: ");
+        let result: Option<&str> = number_to_month(number);
+        match result {
+            Some(month) => break println!("The name of the month is {}", month),
+            None => println!("Invalid Month Number."),
+        }
     }
 }
